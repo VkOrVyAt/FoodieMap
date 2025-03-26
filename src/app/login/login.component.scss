@@ -1,0 +1,49 @@
+@import '~@angular/material/theming';
+
+.login-container {
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: white;
+
+  h2 {
+    text-align: center;
+    color: mat-color($mat-indigo, 800);
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+
+.error-message {
+  color: mat-color($mat-red, 600);
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 600px) {
+  .login-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    box-shadow: none;
+  }
+}

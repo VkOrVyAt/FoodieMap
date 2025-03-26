@@ -1,0 +1,50 @@
+<div class="login-container">
+    <h2>Вход в FoodieMap</h2>
+    
+    <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Поле Email -->
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input 
+          matInput 
+          type="email" 
+          formControlName="email" 
+          placeholder="example@email.com"
+          required>
+        <mat-error *ngIf="LoginForm.controls.email.hasError('required')">
+          Email обязателен
+        </mat-error>
+        <mat-error *ngIf="LoginForm.controls.email.hasError('email')">
+          Введите корректный email
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Поле Пароль -->
+      <mat-form-field appearance="outline">
+        <mat-label>Пароль</mat-label>
+        <input 
+          matInput 
+          type="password" 
+          formControlName="password" 
+          placeholder="•••••••"
+          required>
+        <mat-error *ngIf="LoginForm.controls.password.hasError('required')">
+          Пароль обязателен
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Кнопка входа -->
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit"
+        [disabled]="LoginForm.invalid">
+        Войти
+      </button>
+  
+      <!-- Сообщение об ошибке -->
+      <div *ngIf="authError" class="error-message">
+        {{ authError }}
+      </div>
+    </form>
+  </div>
